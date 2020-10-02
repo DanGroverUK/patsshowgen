@@ -77,43 +77,43 @@ options = {
     ],
     "char1": [
         ["an almost retired murder detective", "forms"],
-        ["a local fireman with a tragic past" ,"forms"],
-        ["several farmers with a dirty secret" ,"form"],
-        ["a beautiful Alpaca" ,"forms"],
-        ["a tired nanny" ,"forms"],
+        ["a local fireman with a tragic past", "forms"],
+        ["several farmers with a dirty secret", "form"],
+        ["a beautiful Alpaca", "forms"],
+        ["a tired nanny", "forms"],
         ["a disgusting car mechanic", "forms"],
-        ["wantonly destructive teenager" ,"forms"],
-        ["the power-hungry local Mayor" ,"forms"],
-        ["a jaded gardener" ,"forms"],
-        ["a crafty butcher" ,"forms"],
-        ["a cynical driving instructor" ,"forms"],
-        ["an emotionally stunted Norwegian" ,"forms"],
-        ["several kidnapped children" ,"form"],
-        ["a number of Michael Jackson's former associates" ,"form"],
-        ["Emperor Hirohito" ,"forms"],
-        ["Michael Portillo and Michael Palin" ,"form"],
-        ["an unemployed former dock worker" ,"forms"],
-        ["a disgraced former prostitute who blurs the lines between sex and magic" ,"forms"],
-        ["a media-savvy politician" ,"forms"],
-        ["a quiet man with a dark past" ,"forms"],
-        ["desperate criminal who's run out of track" ,"forms"],
-        ["a complacent safety officer" ,"forms"],
-        ["an obese personal trainer" ,"forms"],
-        ["several generations of one family" ,"forms"],
-        ["a boy and his long-lost twin sister" ,"forms"],
-        ["the head of the Neighbourhood Watch" ,"forms"],
-        ["Gareth Southgate" ,"forms"],
-        ["Ed Miliband" ,"forms"],
-        ["a woman with an insatiable appetite for batter" ,"forms"],
-        ["a local cop of conspicuously different ethnicity" ,"forms"],
-        ["a sassy female detective" ,"forms"],
-        ["an amateur sleuth with a hidden past" ,"forms"],
-        ["a former Royal Marine who can't forget what he saw as a child" ,"forms"],
-        ["a violent Dutch footall hooligan" ,"forms"],
-        ["an vigorous advocate for the death penalty" ,"forms"],
-        ["a prison guard tortured by mental health issues" ,"forms"],
-        ["a drug dealer with a heart of gold" ,"forms"],
-        ["a fisherman who's always in the wrong place at the wrong time" ,"forms"]
+        ["wantonly destructive teenager", "forms"],
+        ["the power-hungry local Mayor", "forms"],
+        ["a jaded gardener", "forms"],
+        ["a crafty butcher", "forms"],
+        ["a cynical driving instructor", "forms"],
+        ["an emotionally stunted Norwegian", "forms"],
+        ["several kidnapped children", "form"],
+        ["a number of Michael Jackson's former associates", "form"],
+        ["Emperor Hirohito", "forms"],
+        ["Michael Portillo and Michael Palin", "form"],
+        ["an unemployed former dock worker", "forms"],
+        ["a disgraced former prostitute who blurs the lines between sex and magic", "forms"],
+        ["a media-savvy politician", "forms"],
+        ["a quiet man with a dark past", "forms"],
+        ["desperate criminal who's run out of track", "forms"],
+        ["a complacent safety officer", "forms"],
+        ["an obese personal trainer", "forms"],
+        ["several generations of one family", "forms"],
+        ["a boy and his long-lost twin sister", "forms"],
+        ["the head of the Neighbourhood Watch", "forms"],
+        ["Gareth Southgate", "forms"],
+        ["Ed Miliband", "forms"],
+        ["a woman with an insatiable appetite for batter", "forms"],
+        ["a local cop of conspicuously different ethnicity", "forms"],
+        ["a sassy female detective", "forms"],
+        ["an amateur sleuth with a hidden past", "forms"],
+        ["a former Royal Marine who can't forget what he saw as a child", "forms"],
+        ["a violent Dutch footall hooligan", "forms"],
+        ["an vigorous advocate for the death penalty", "forms"],
+        ["a prison guard tortured by mental health issues", "forms"],
+        ["a drug dealer with a heart of gold", "forms"],
+        ["a fisherman who's always in the wrong place at the wrong time", "forms"]
     ],
     "relationship": [
         "an unlikely friendship",
@@ -202,7 +202,7 @@ options = {
         "appropriate culture willy-nilly",
         "enact a coup with frankly unimaginable consequences",
         "proves robots can love",
-        "show that blood is ticker than water",
+        "show that blood is thicker than water",
         "rush out a report totally absolving the government of any guilt",
         "expose capitalisms flaws"
     ],
@@ -287,13 +287,13 @@ options = {
         "hog the middle lane"
     ],
     "para": [
-        "In {place}, {char1} {forms} {relationship} with {char2} {char2_possession}. Their bid to {mission} starts when " \
-        "their {shared_interest} brings them unexpectedly together. But when {historic_element} " \
+        "In {place}, {char1} {forms} {relationship} with {char2} {char2_possession}. Their bid to {mission} starts when "
+        "their {shared_interest} brings them unexpectedly together. But when {historic_element} "
         "{historic_where} re-appears, they each must {action}. {final}",
-        "{char1}. {char2} {char2_possession}. In {place}, their {shared_interest} sees them form {relationship} " \
+        "{char1}. {char2} {char2_possession}. In {place}, their {shared_interest} sees them form {relationship} "
         "in order to {mission}. But when {historic_element} {historic_where} returns, they may be forced to {action}. {final}",
-        "When their {shared_interest} brings them together, {char1} and {char2} {char2_possession} " \
-        "form {relationship}. With a desire to {mission} as their goal, {place} will never be the same. " \
+        "When their {shared_interest} brings them together, {char1} and {char2} {char2_possession} "
+        "form {relationship}. With a desire to {mission} as their goal, {place} will never be the same. "
         "But after {historic_element} {historic_where} returns, will *they* ever be the same? {final}"
     ],
     "final": [
@@ -306,11 +306,14 @@ options = {
 
 }
 
-def sentenceCapitaliser (para):
+
+def sentenceCapitaliser(para):
     sentences = para.split(". ")
-    sentences2 = [sentence[0].capitalize() + sentence[1:] for sentence in sentences]
+    sentences2 = [sentence[0].capitalize() + sentence[1:]
+                  for sentence in sentences]
     string2 = '. '.join(sentences2)
     return string2
+
 
 def pick(filler):
     opts = options[filler]
