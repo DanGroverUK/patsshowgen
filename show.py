@@ -82,7 +82,7 @@ options = {
         ["a beautiful Alpaca", "forms"],
         ["a tired nanny", "forms"],
         ["a disgusting car mechanic", "forms"],
-        ["wantonly destructive teenager", "forms"],
+        ["a wantonly destructive teenager", "forms"],
         ["the power-hungry local Mayor", "forms"],
         ["a jaded gardener", "forms"],
         ["a crafty butcher", "forms"],
@@ -201,7 +201,7 @@ options = {
         "wake from their dark, dark sleep",
         "appropriate culture willy-nilly",
         "enact a coup with frankly unimaginable consequences",
-        "proves robots can love",
+        "prove robots can love",
         "show that blood is thicker than water",
         "rush out a report totally absolving the government of any guilt",
         "expose capitalisms flaws"
