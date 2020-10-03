@@ -41,7 +41,10 @@ options = {
         "A Knight in Tromsø",
         "The Shallow Daylight",
         "Where Daisies Die",
-        "Secrets, Lies and Secrets"
+        "Secrets, Lies and Secrets",
+        "A Clap in the Night",
+        "A Butcher's Trombone",
+        "The Banishment"
     ],
     "place": [
         "a desolate Icelandic hamlet",
@@ -68,12 +71,13 @@ options = {
         "the vast bat-markets of China",
         "a churchyard crypt",
         "a sinister nursery",
-        "the local Job Centre, plagued with cuts,",
+        "the local Job Centre plagued with cuts",
         "a cave-prison for stolen children",
         "the Tate's wonderful Turner exhibition",
         "a prison for dogs",
         "a prison for Norway's hardest criminals",
-        "a mechanical graveyard"
+        "a town beneath the Northern Lights",
+        "a sexist golf club"
     ],
     "char1": [
         ["an almost retired murder detective", "forms"],
@@ -115,6 +119,68 @@ options = {
         ["a drug dealer with a heart of gold", "forms"],
         ["a fisherman who's always in the wrong place at the wrong time", "forms"]
     ],
+    "firstname": [
+        "Klaus",
+        "Roger",
+        "Martina",
+        "Wolfgang",
+        "Hans",
+        "Johan",
+        "Martha",
+        "Nils",
+        "Lars",
+        "Ulrich",
+        "Robyn",
+        "Alejandro",
+        "Sondre",
+        "Marc",
+        "Ricardo",
+        "Pierre",
+        "Gylfi",
+        "Kräpp",
+        "Ranolph",
+        "Tanner",
+        "Arma",
+        "Woller"
+    ],
+    "surname": [
+        "Blitz",
+        "Panzerfaust",
+        "Minh",
+        "Auschwitz",
+        "Doppelgänger",
+        "Janssen",
+        "Satoshi-san",
+        "Peanutto",
+        "Ruskovankowitz",
+        "Eriksen",
+        "Sigurðsson",
+        "Sævarsson",
+        "Árnason",
+        "Skúlason",
+        "Magnússon",
+        "Hermannsson",
+        "Örn Eyjólfsson",
+        "Wollanderson",
+        "Tiedemann",
+        "Tannhaus",
+        "Elphabasen",
+        "Ragnorok",
+        "Rasputin",
+        "Lenin-Lennon",
+        "Luftballons",
+        "von Achtung",
+        "von Eyjafjallajökull",
+        "McFucko",
+        "Buckminster",
+        "Rosti",
+        "Kopparberg",
+        "Grossenschlange",
+        "von Brugge",
+        "Brügge",
+        "Kräpphaus",
+        "Randolphsen"
+    ],
     "relationship": [
         "an unlikely friendship",
         "a bond of trust",
@@ -137,7 +203,8 @@ options = {
         "a spy ring",
         "a morally dubious psychiatric practice",
         "an ethical pornography studio",
-        "an illegal private detective outfit"
+        "an illegal private detective outfit",
+        "a cult of lust"
     ],
     "char2": [
         "an overwhelmed mother",
@@ -155,13 +222,17 @@ options = {
         "the McCannes",
         "a wacky inventor",
         "an estate agent with shit for brains",
-        "a disgraced for Olympian who shot his girlfriend",
+        "a disgraced former Olympian who shot his girlfriend",
         "a painter of bleak landscapes",
         "Rasputin's only known heir",
         "a group of Scottish Nationalists",
         "a demanding Golden Retriver",
         "an outdated working man's club comedian",
-        "the winner of a bitter local election"
+        "the winner of a bitter local election",
+        "the mother of a missing boy",
+        "a widowed father",
+        "an overworked council worker",
+        "a gaunt fisherman"
     ],
     "char2_possession": [
         "with a troubled step-son",
@@ -179,38 +250,44 @@ options = {
         "who's constantly dogged by accusation of historic sex crimes",
         "with a penchant for public masturbation",
         "with proud Gypsy blood",
-        "who stokes racial tensions"
+        "who stokes racial tensions",
+        "intent on smashing the glass ceiling",
+        "who doesn't know good from evil",
+        "who can't bare their own reflection",
+        "plauged with abandonment issues"
     ],
     "mission": [
         "reunite the fragmented local Women's Institute",
         "get to the bottom of an historic sex crime",
-        "detect ancient Roman coins",
+        "detect a mysterious signal",
         "bury an old secret",
         "find the truth in a world full of lies",
         "defeat racism for a second time",
         "travel back in time to prevent the Chernobyl disaster",
-        "kill Hitler before it's too late",
         "beat the Russians to the Moon",
         "solve a cold case that the locals refuse to talk about",
         "avenge a distressing loss of innocence",
-        "commit an even greater crime",
+        "commit a great crime",
         "ensure Putin's continued Premiereship of Russia",
         "beat a local gang at their own game",
         "bring joy to the local children's cancer hospice",
-        "professionalise the theft of trainers from Sports Direct",
-        "wake from their dark, dark sleep",
+        "steal trainers from Sports Direct",
+        "wake from their dark, dark dreams",
         "appropriate culture willy-nilly",
         "enact a coup with frankly unimaginable consequences",
         "prove robots can love",
         "show that blood is thicker than water",
         "rush out a report totally absolving the government of any guilt",
-        "expose capitalisms flaws"
+        "expose capitalisms flaws",
+        "finally solve a grizzly murder",
+        "discover a local secret",
+        "find the truth"
     ],
     "shared_interest": [
         "shared distrust of authority",
         "paralysis from the waist down",
         "shared hatred of Women's professional football",
-        "fear of large fish",
+        "fear of caves",
         "enjoyment of sexist jokes",
         "desire to see a United Ireland",
         "ceaseless enjoyment of trains",
@@ -289,19 +366,26 @@ options = {
     "para": [
         "In {place}, {char1} {forms} {relationship} with {char2} {char2_possession}. Their bid to {mission} starts when "
         "their {shared_interest} brings them unexpectedly together. But when {historic_element} "
-        "{historic_where} re-appears, they each must {action}. {final}",
+        "{historic_where} re-appears, they each must {action} - and {firstname} {surname} must act. {final}",
         "{char1}. {char2} {char2_possession}. In {place}, their {shared_interest} sees them form {relationship} "
-        "in order to {mission}. But when {historic_element} {historic_where} returns, they may be forced to {action}. {final}",
+        "in order to {mission} with {firstname} {surname}. But when {historic_element} {historic_where} returns, "
+        "they may be forced to {action}. {final}",
         "When their {shared_interest} brings them together, {char1} and {char2} {char2_possession} "
         "form {relationship}. With a desire to {mission} as their goal, {place} will never be the same. "
-        "But after {historic_element} {historic_where} returns, will *they* ever be the same? {final}"
+        "But after {historic_element} {historic_where} returns, will *they* ever be the same? Will "
+        "{firstname} {surname} ever be the same? {final}",
+        "The place? {place}. The mission? To {mission}. But when {char1} {forms} {relationship} with "
+        "{char2} {char2_possession} due to their {shared_interest}, they must {action}. Can the return of "
+        "{historic_element} {historic_where} stop them? Only {firstname} {surname} knows. {final}"
     ],
     "final": [
         "Things will never be the same...",
         "Time is running out...",
         "And can love bloom in this desolate place?",
         "The sun will soon set...",
-        "The clock is nearly at midnight..."
+        "The clock is nearly at midnight...",
+        "Could they be wrong?",
+        "Nominated for Emmy Award's 'Most Depressing Drama'."
     ]
 
 }
@@ -320,12 +404,7 @@ def pick(filler):
     chosen = random.randrange(0, len(opts))
     return opts[chosen]
 
-
-@app.route('/')
-def gen_show():
-    title = pick("title")
-    char1 = pick("char1")
-    para = pick("para")
+def fillBlanks(para, char1):
     desc = para.format(place=pick("place"),
                        char1=char1[0],
                        forms=char1[1],
@@ -337,7 +416,18 @@ def gen_show():
                        historic_element=pick("historic_element"),
                        historic_where=pick("historic_where"),
                        action=pick("action"),
-                       final=pick("final"))
+                       final=pick("final"),
+                       firstname=pick("firstname"),
+                       surname=pick("surname"))
+    return desc
+
+
+@app.route('/')
+def gen_show():
+    title = pick("title")
+    char1 = pick("char1")
+    para = pick("para")
+    desc = fillBlanks(para, char1)
     return render_template("index.html", title=title.upper(), desc=sentenceCapitaliser(desc))
 
 
