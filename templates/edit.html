@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Edit</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    <body>
+        <h1>Edit</h1>
+        <form>
+            <h2>Titles</h2>
+            <textarea id="title" name="title" rows="20" cols="60">
+{{ title }}
+            </textarea>
+            
+            <h2>Place</h2>
+            <textarea id="place" name="place" rows="20" cols="60">
+{{ place }}
+            </textarea>
+            
+            <h2>Character 1</h2>
+            <textarea id="char1" name="char1" rows="20" cols="60">
+{{ char1 }}
+            </textarea>
+            
+            <h2>Character 2</h2>
+            <textarea id="char2" name="char2" rows="20" cols="60">
+{{ char2 }}
+            </textarea>
+            
+            <h2>Character 2 Possession</h2>
+            <textarea id="char2_possession" name="char2_possession" rows="20" cols="60">
+{{ char2_possession }}
+            </textarea>
+            
+            <h2>Relationship</h2>
+            <textarea id="relationship" name="relationship" rows="20" cols="60">
+{{ relationship }}
+            </textarea>
+            
+            <h2>Shared Interest</h2>
+            <textarea id="shared_interest" name="shared_interest" rows="20" cols="60">
+{{ shared_interest }}
+            </textarea>
+            
+            <h2>Mission</h2>
+            <textarea id="mission" name="mission" rows="20" cols="60">
+{{ mission }}
+            </textarea>
+            
+            <h2>First Name</h2>
+            <textarea id="firstname" name="firstname" rows="20" cols="60">
+{{ firstname }}
+            </textarea>
+            
+            <h2>Surname</h2>
+            <textarea id="surname" name="surname" rows="20" cols="60">
+{{ surname }}
+            </textarea>
+            
+            <h2>Historic Element</h2>
+            <textarea id="historic_element" name="historic_element" rows="20" cols="60">
+{{ historic_element }}
+            </textarea>
+            
+            <h2>Historic Where</h2>
+            <textarea id="historic_where" name="historic_where" rows="20" cols="60">
+{{ historic_where }}
+            </textarea>
+            
+            <h2>Action</h2>
+            <textarea id="action" name="action" rows="20" cols="60">
+{{ action }}
+            </textarea>
+            
+            <h2>Final</h2>
+            <textarea id="final" name="final" rows="20" cols="60">
+{{ final }}
+            </textarea>
+        </form>
+    </body>
+</html>
