@@ -1,12 +1,15 @@
 import sys
 import random
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-with open('options.json') as fo:
-    options = json.load(fo)
+def loadOptions():
+  jo = (app.root_path + "/options.json")
+  with open(jo, encoding="utf-8") as fo:
+      global options
+      options = json.load(fo)
 
 
 def sentenceCapitaliser(para):
@@ -52,6 +55,7 @@ def dictToString(options):
 
 @app.route('/')
 def gen_show():
+    loadOptions()
     title = pick("title")
     char1 = pick("char1")
     para = pick("para")
@@ -60,6 +64,7 @@ def gen_show():
     
 @app.route('/edit')
 def edit_show():
+    loadOptions()
     opts = dictToString(options)
     return render_template("edit.html",
         title=opts["title"],
