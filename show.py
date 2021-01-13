@@ -2,10 +2,12 @@ import random
 import json
 import shutil
 import time
-import glob 
+import glob
 import os
+import sys
 from flask import Flask, render_template, request, redirect, url_for
-import patsshowgen.forms as forms
+sys.path.insert(0, os.path.basename(__file__))
+import forms
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "blarrghhdshsg"
@@ -66,7 +68,7 @@ def marshalFormData(data):
         if k in ["csrf_token", "f_submit"]:
             continue  # we don't need this
         options = data[k].split("\r\n")
-        options = [x for x in options if x != '']      
+        options = [x for x in options if x != '']
         if k == "f_char1":
             for i in range((len(options)-1), 0, -1):
                 options[i] = eval(options[i])
@@ -127,6 +129,7 @@ def edit():
             with open("options.json", mode="w") as outfile:
                 json.dump(m_data, outfile)
             return redirect(url_for('gen_show'))
+
 
 if __name__ == "__main__":
     app.run()
