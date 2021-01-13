@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 # This specific project
-option_backups/*
+options_backups
+.venv

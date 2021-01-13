@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField, SubmitField
 
+
 class EditForm(FlaskForm):
     f_title = TextAreaField("Title")
     f_place = TextAreaField("Place")
@@ -16,4 +17,5 @@ class EditForm(FlaskForm):
     f_historic_where = TextAreaField("Historic Where")
     f_action = TextAreaField("Action")
     f_final = TextAreaField("Final")
+    f_para = TextAreaField("Paragraph")
     f_submit = SubmitField("Save")
