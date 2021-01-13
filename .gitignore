@@ -131,3 +131,4 @@ dmypy.json
 # This specific project
 options_backups
 .venv
+upload
