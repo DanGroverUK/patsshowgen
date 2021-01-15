@@ -16,8 +16,8 @@ app.config["SECRET_KEY"] = "blarrghhdshsg"
 def loadOptions():
     jo = (app.root_path + "/options.json")
     with open(jo, encoding="utf-8") as fo:
-        global options
         options = json.load(fo)
+    return options
 
 
 def sentenceCapitaliser(para):
@@ -29,6 +29,7 @@ def sentenceCapitaliser(para):
 
 
 def pick(filler):
+    options = loadOptions()
     opts = options[filler]
     chosen = random.randrange(0, len(opts))
     return opts[chosen]
@@ -52,14 +53,19 @@ def fillBlanks(para, char1):
     return desc
 
 
-def dictToString(options):
-    newDict = {}
+def dictToForm(options):
+    EditForm = forms.EditForm()
     for k in options.keys():
         newstr = ""
+        fieldname = "f_" + k
         for o in options[k]:
             newstr = newstr + str(o) + "\n"
-        newDict[k] = newstr
-    return newDict
+        EditForm[fieldname].data = newstr
+        if k != "para":
+            EditForm[fieldname].render_kw["rows"] = (len(options[k]) + 3)
+        else:
+            EditForm[fieldname].render_kw["rows"] = (len(options[k]) * 4)
+    return EditForm
 
 
 def marshalFormData(data):
@@ -81,15 +87,14 @@ def backupOptions():
     t = str(int(time.time()))
     dst = (app.root_path + "/options_backups/options_{}.json".format(t))
     shutil.copyfile(src, dst)
-    while len(glob.glob(app.root_path + "/options_backups/*.json")) > 5:
-        old_bus = glob.glob(app.root_path + "/options_backups/*.json").sort()
-        print("Deleting {} now!".format(old_bus[0]))
-        os.remove(old_bus[0])
+    for r, d, f in os.walk((app.root_path + "/options_backups/*.json")):
+        if len(f) > 5:
+            f.sort()
+            os.remove(os.path.join(r, f[0]))
 
 
 @app.route('/')
 def gen_show():
-    loadOptions()
     title = pick("title")
     char1 = pick("char1")
     para = pick("para")
@@ -99,25 +104,8 @@ def gen_show():
 
 @app.route('/edit', methods=["GET", "POST"])
 def edit():
-    loadOptions()
-    opts = dictToString(options)
-    EditForm = forms.EditForm(
-        f_title=opts["title"],
-        f_place=opts["place"],
-        f_char1=opts["char1"],
-        f_char2=opts["char2"],
-        f_char2_possession=opts["char2_possession"],
-        f_relationship=opts["relationship"],
-        f_shared_interest=opts["shared_interest"],
-        f_mission=opts["mission"],
-        f_firstname=opts["firstname"],
-        f_surname=opts["surname"],
-        f_historic_element=opts["historic_element"],
-        f_historic_where=opts["historic_where"],
-        f_action=opts["action"],
-        f_para=opts["para"],
-        f_final=opts["final"]
-    )
+    options = loadOptions()
+    EditForm = dictToForm(options)
     if request.method == "GET":
         return render_template("edit.html", EditForm=EditForm)
     if request.method == "POST":
@@ -126,10 +114,11 @@ def edit():
             form_data = request.form
             m_data = marshalFormData(form_data)
             backupOptions()
-            with open("options.json", mode="w") as outfile:
+            options_f = (app.root_path + "/options.json")
+            with open(options_f, mode="w") as outfile:
                 json.dump(m_data, outfile)
             return redirect(url_for('gen_show'))
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

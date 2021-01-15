@@ -1,20 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #dedede;
-  background: #222222;
-  font-size: 15pt;
-}
-
-body h1 {
-  margin: 1px;
-  text-align: left;
-  letter-spacing: -7px;
-  font-size: 700%;
-  font-weight: 700;
-  color: white;
-}
+@import "main.css";
 
 textarea {
   line-height:1.4;
@@ -22,7 +6,6 @@ textarea {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  height: 300px;
   background-color: #333333;
   color: #dedede;
   border-width: 1px;
@@ -41,7 +24,7 @@ input {
 }
 
 .row {
-  display: flex;
+  display: block;
   flex-wrap: nowrap;
   align-content: stretch;
   padding: 10px;
@@ -49,6 +32,7 @@ input {
   border-width: 0px;
   border-bottom-width: 1px;
   border-color: #444444;
+  width: 95%;
 }
 
 .label {

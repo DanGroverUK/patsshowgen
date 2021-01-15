@@ -1,14 +1,14 @@
 <html>
     <head>
-        <title>Edit</title>
+        <title>Make the Magic...</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
     </head>
     <body>
-        <h1>Edit</h1>
+        <h1>EDIT</h1>
         <form action="{{ url_for('edit') }}" method="post" role="form" class="editform" enctype="multipart/form-data">{{ EditForm.csrf_token }}
             {% for element in EditForm %}
                 {% if element.name != "f_submit" and element.name != "csrf_token" %}
-                    <div class="row"><div class="label">{{ element.label }}</div><div class="options">{{ element }}</div></div>
+                    <div class="row"><div class="label"><h2>{{ element.label }}</h2></div><div class="options">{{ element }}</div></div>
                 {% endif %}
             {% endfor %}
             <div class="row" style="border-bottom-width: 0px;">{{ EditForm.f_submit() }}</div>

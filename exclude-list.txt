@@ -5,3 +5,5 @@ __pycache__
 .venv
 .git
 .gitignore
+*.json
+options_backups/
