@@ -132,3 +132,4 @@ dmypy.json
 options_backups
 .venv
 upload
+testing.py
