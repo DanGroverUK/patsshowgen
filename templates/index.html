@@ -4,7 +4,28 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
     <body>
-        <h1 style="margin-bottom: 50px;">{{ title }}</h1>
-        <h2>{{ desc }}</h2>
+    {% if sel == "scandinow" %}
+        <div class="scandistyle">
+    {% else %}
+        <div class="agstyle">
+    {% endif %}
+            <div class="container">
+                <div class="content">
+                    <h1 style="margin-bottom: 50px;">{{ title }}</h1>
+                    <h2>{{ desc }}</h2>
+                </div>
+                <div class="footer">
+                {% if sel == "scandinow" %}
+                    <div class="edit"><a href="/edit?sel=scandinow">(Edit)</a></div>
+                    <span class="scandinow"><div class="selected">Scandi-Now TV</div></span>
+                    <span class="abao"><a href="/?sel=ag">Anything Goes</a></span>
+                {% else %}
+                    <div class="edit"><a href="/edit?sel=ag">(Edit)</a></div>
+                    <span class="scandinow"><a href="/?sel=scandinow">Scandi-Now TV</a></span>
+                    <span class="abao"><div class="selected">Anything Goes</div></span>
+                {% endif %}
+                </div>
+            </div>
+        </div>    
     </body>
 </html>

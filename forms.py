@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import TextAreaField, SubmitField
+from wtforms import TextAreaField, SubmitField, HiddenField
 
 
 class EditForm(FlaskForm):
@@ -19,4 +19,5 @@ class EditForm(FlaskForm):
     f_final = TextAreaField("Final", render_kw={"rows": "1"})
     f_para = TextAreaField("Paragraph", render_kw={"rows": "1"})
     f_submit = SubmitField("Save", render_kw={"rows": "1"})
+    f_sel = HiddenField("sel")
     

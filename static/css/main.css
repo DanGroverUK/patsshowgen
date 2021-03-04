@@ -1,16 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Lato&family=Roboto+Mono:wght@700&family=Lobster&family=Open+Sans&family=Monoton&family=Parisienne&family=Reenie+Beanie&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444;
-  background: #010101;
   font-size: 15pt;
 }
 
 body h1 {
   font-size: 470%;
   font-weight: 700;
-  margin-top: 1px;
+  margin-top: 0px;
   text-align: left;
   letter-spacing: -7px;
   color: white;
@@ -24,4 +25,73 @@ body h2 {
   letter-spacing: -1px;
   color: grey;
   margin: 0px;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.container {
+  /* display: flex;
+  flex-direction: column;
+  height:100%; */
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;;
+}
+
+.scandistyle {
+  background: #010101;
+}
+
+.agstyle {
+  background: #012735;
+}
+
+.content {
+}
+
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: grid;
+  grid-template-rows: 25px auto;
+  grid-template-columns: 50% 50%;
+}
+
+.edit {
+  grid-column-end: span 2;
+  font-weight: 700;
+  color: #ccc;
+  text-align: right;
+  font-size: 70%;
+  line-height: 32px;
+  font-family: "Roboto Mono";
+}
+
+.scandinow {
+  font-family: 'Reenie Beanie', cursive;
+  font-style: italic;
+  text-align-last: center;
+  line-height: 32px;
+  font-size: 130%;
+  color: #888;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.abao {
+  text-align-last: center;
+  font-family: 'Lobster';
+  line-height:32px;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.selected {
+  background: rgb(255, 255, 255, 0.2);
+  color: #ccc;
 }

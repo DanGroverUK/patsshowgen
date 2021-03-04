@@ -2,7 +2,6 @@ import random
 import json
 import shutil
 import time
-import glob
 import os
 import sys
 from flask import Flask, render_template, request, redirect, url_for
@@ -11,10 +10,11 @@ import forms
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "blarrghhdshsg"
+sel = ""
 
 
 def loadOptions():
-    jo = (app.root_path + "/options.json")
+    jo = (app.root_path + "/options_{}.json".format(sel))
     with open(jo, encoding="utf-8") as fo:
         options = json.load(fo)
     return options
@@ -65,13 +65,14 @@ def dictToForm(options):
             EditForm[fieldname].render_kw["rows"] = (len(options[k]) + 3)
         else:
             EditForm[fieldname].render_kw["rows"] = (len(options[k]) * 4)
+    EditForm["f_sel"].data = sel
     return EditForm
 
 
 def marshalFormData(data):
     new_dict = {}
     for k in data.keys():
-        if k in ["csrf_token", "f_submit"]:
+        if k in ["csrf_token", "f_submit", "f_sel"]:
             continue  # we don't need this
         options = data[k].split("\r\n")
         options = [x for x in options if x != '']
@@ -83,41 +84,54 @@ def marshalFormData(data):
 
 
 def backupOptions():
-    src = (app.root_path + "/options.json")
+    src = (app.root_path + "/options_{}.json".format(sel))
     t = str(int(time.time()))
-    dst = (app.root_path + "/options_backups/options_{}.json".format(t))
+    dst = (app.root_path + "/options_backups/options_{}_{}.json".format(sel, t))
     shutil.copyfile(src, dst)
     for r, d, f in os.walk((app.root_path + "/options_backups/*.json")):
-        if len(f) > 5:
+        if len(f) > 10:
             f.sort()
             os.remove(os.path.join(r, f[0]))
 
 
-@app.route('/')
+@app.route('/', methods=["GET"])
 def gen_show():
+    mode = request.args.get('sel', default="scandinow")
+    global sel
+    if mode == "ag":
+        sel = "ag"
+    else:
+        sel = "scandinow"
     title = pick("title")
     char1 = pick("char1")
     para = pick("para")
     desc = fillBlanks(para, char1)
-    return render_template("index.html", title=title.upper(), desc=sentenceCapitaliser(desc))
+    return render_template("index.html", title=title.upper(), desc=sentenceCapitaliser(desc), sel=sel)
 
 
 @app.route('/edit', methods=["GET", "POST"])
 def edit():
+    global sel
+    mode = request.args.get('sel', default="scandinow")
+    if mode == "ag":
+        sel = "ag"
+    else:
+        sel = "scandinow"
     options = loadOptions()
     EditForm = dictToForm(options)
     if request.method == "GET":
-        return render_template("edit.html", EditForm=EditForm)
+        return render_template("edit.html", EditForm=EditForm, sel=sel)
     if request.method == "POST":
         if EditForm.f_submit.data:
             print("Saving...")
             form_data = request.form
+            sel = form_data["f_sel"]
             m_data = marshalFormData(form_data)
             backupOptions()
-            options_f = (app.root_path + "/options.json")
+            options_f = (app.root_path + "/options_{}.json".format(sel))
             with open(options_f, mode="w") as outfile:
                 json.dump(m_data, outfile)
-            return redirect(url_for('gen_show'))
+            return redirect(url_for('gen_show', sel=sel))
 
 
 if __name__ == "__main__":
